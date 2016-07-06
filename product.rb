@@ -10,11 +10,14 @@ class Product
     @quantity = quantity
   end
 
+
+
   private
   def next_id
     @@id += 1
   end
 end
+
 
 #product1 = Product.new({name: "Ball", price: 12.1, quantity: 10}) #dodać tutaj ilość?
 #product2 = Product.new({name: "Pencil", price: 2.6, quantity: 100})
