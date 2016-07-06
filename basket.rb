@@ -23,14 +23,14 @@ attr_reader :basket
     puts " "
   end
 
-  def count_basket
-	@@value = @basket.map {|s| s[:price]}.
-	reduce(0, :+)
-  end
+ # def count_basket
+#	@@value = @basket.map {|s| s[:price]}.
+#	reduce(0, :+)
+ # end
 
-  def count_with_vat
+  #def count_with_vat
    #(@@value.to_f*1.23).round(2)
-  end
+  #end
 
 
 end
