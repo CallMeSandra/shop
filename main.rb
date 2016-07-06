@@ -40,19 +40,19 @@ def menu
 	  	puts "You bought #{my.name}"
 	  menu
 	 else 
-		p "try again"
+		p "Wrong number-try again"
 		menu
 	end
+	when '2'
 	  puts @basket.show
 	  menu
-	when '2'
-	  #menu
 	when '3'
-	  #menu
+	  menu
 	when '4'
+		menu
 	else
 	  puts "Wrong number - try again"
-	  #menu
+	  menu
 	end
 end
 puts menu
