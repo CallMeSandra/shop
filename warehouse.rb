@@ -13,6 +13,10 @@ class Warehouse
   	end
   end
 
+  #def products(products) - to samo co :products
+  #	@products = products
+  #end
+
   def find_product_by_id(my_id)
   	@products.find do |product| 
   	   product.id == my_id

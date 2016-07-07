@@ -11,15 +11,12 @@ product5 = Product.new({name: "Book", price: 7.4, quantity: 15})
 products_list = [product1, product2, product3, product4, product5]
 
 @warehouse = Warehouse.new(products_list)
-#p warehouse
 
 #my = warehouse.find_product_by_id(3)
 #puts my
 #puts my.name
-
 @basket = Basket.new
-#basket.add(my)
-#basket.remove(wy)
+
 
 def menu
 	puts "Select an operation number
@@ -47,8 +44,21 @@ def menu
 	  puts @basket.show
 	  menu
 	when '3'
+	  puts @basket.show
+	  puts "What do you want to remove? (give name)"
+	  given_name = gets.chomp
+	  new_basket = @basket.mapp { |s| s.name}
+	  if new_basket.include?(given_name)
+	  	ed = @basket.search_basket_by_name(given_name)
+	  	@basket.delete(ed)
+	  	puts "You removed #{ed.name}"
+	  	menu
+	  else
+	  	puts "Wrong name"
 	  menu
+	 end
 	when '4'
+		@basket.count_basket
 		menu
 	else
 	  puts "Wrong number - try again"
