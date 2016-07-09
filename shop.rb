@@ -19,16 +19,6 @@ require_relative "./basket"
 
 class Shop
   def initialize 
-    @warehouse = Warehouse.new([
-      Product.new("Ball", 12.1, 10),
-    Product.new("Pencil", 2.6, 100),
-      Product.new("Pen", 1.3, 100),
-      Product.new("Glue", 3.2, 3 ),
-      Product.new("Book", 7.4, 15)
-    ])
-    @basket = Basket.new
-  end
-=begin
   	@warehouse = Warehouse.new([
       Product.new({name: "Ball", price: 12.1, quantity: 10}),
 	  Product.new({name: "Pencil", price: 2.6, quantity: 100}),
@@ -38,7 +28,6 @@ class Shop
   	])
   	@basket = Basket.new
   end
-=end
   
   def star_shopping
   	@warehouse.show_all
@@ -111,7 +100,7 @@ shop.display_menu
 	 # puts @basket.show
 	 # puts "What do you want to remove? (give name)"
 	 # given_name = gets.chomp
-	 # new_basket = @basket.mapp { |s| s.name}
+	 # new_basket = @basket.map { |s| s.name}
 	 # if new_basket.include?(given_name)
 	 # 	ed = @basket.search_basket_by_name(given_name)
 	 # 	@basket.delete(ed)

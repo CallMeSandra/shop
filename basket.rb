@@ -22,20 +22,16 @@ class Basket
     @basket.delete_at(index)
   end
 
-  def mapp
-    @basket.map { |s| s.name }
-  end
-
   def count_basket
-    value = @basket.map {|s| s.price}.
+    value = @basket.map {|product| product.price}.
     reduce(0, :+)
-    p "Yor basket value: #{value}"
+    p "Yor basket value: #{value.round(2)}"
     p "With tax: #{(value*1.23).round(2)}"
   end
 
 
   def show
-    puts "lp.  | nazwa  | cena"
+    puts "lp.  | name  | price"
     @basket.each_with_index do |x,index|
       puts " #{index+1} | #{x.name} | #{x.price}$"
     end
