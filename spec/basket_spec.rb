@@ -1,5 +1,5 @@
-require_relative "./../basket"
-require_relative "./../product"
+require_relative "./../lib/basket"
+require_relative "./../lib/product"
 
 RSpec.describe Basket do 
   before(:each) do
@@ -29,10 +29,6 @@ RSpec.describe Basket do
   	fulfill_basket(products_array)
   	expect(@basket.basket).to eql(basket_array)
    end
-
-   
-
-
 
   def fulfill_basket(products_array)
   	products_array.each do |product| 

@@ -1,26 +1,28 @@
-require_relative "./../warehouse"
-require_relative "./../product"
+require_relative "./../lib/warehouse"
+require_relative "./../lib/product"
 
 RSpec.describe Warehouse do 
-=begin
-  before(:each) do
-    @warehouse = Warehouse.new(Product.new("Ball", 12.1, 10),
-    Product.new("Pencil", 2.6, 100))
-  end
-=end
+
 let(:product) {Product.new("Chocolate", 12, 30)}
 let(:product2) {Product.new("Cookies", 12, 30)}
 
   it "creates warehouse" do
     expect{
-      Warehouse.new(product)
+      Warehouse.new([product, product2])
       }.to_not raise_error
   end
 
+  context "#show_all"
   it "shows products" do
-    expect((Warehouse.new(product)).show_all).to
+    @warehouse=Warehouse.new([product, product2])
+    expect(@warehouse.show_all).to
     eql("1 Chocolate 12$")
   end
 
+  context "#find_product_by_id" 
+    it "returns proper quantity value" do
+      expect(Warehouse.new([product, product2])).find_product_by_id(1).
+      to eql(product)
+    end
 
 end

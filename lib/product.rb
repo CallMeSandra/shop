@@ -10,8 +10,6 @@ class Product
     @quantity = set_quantity(quantity)
   end
 
-
-
   private
   def next_id
     @@id += 1
@@ -33,7 +31,6 @@ class Product
     raise ArgumentError if quantity <=0
     quantity
   end
-  #co będzie jak cena będzie ujemna, nazwy nie będzie
 
 end
 

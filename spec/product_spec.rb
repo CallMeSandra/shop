@@ -1,4 +1,4 @@
-require_relative "./../product"
+require_relative "./../lib/product"
 
 RSpec.describe Product do 
   let (:price) {12.11} #definiuje
@@ -58,5 +58,4 @@ RSpec.describe Product do
       Product.new(name,price,nil)
     }.to raise_error(ArgumentError)
   end
-
 end
