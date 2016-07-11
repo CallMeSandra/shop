@@ -3,14 +3,14 @@ require_relative "./warehouse"
 require_relative "./basket"
 
 class Shop
-  def initialize 
+  def initialize
     @warehouse = Warehouse.new([
-      Product.new("Ball", 12.1, 10),
-    Product.new("Pencil", 2.6, 100),
-      Product.new("Pen", 1.3, 100),
-      Product.new("Glue", 3.2, 3 ),
-      Product.new("Book", 7.4, 15)
-    ])
+      Product.new("Ball", 12.1),
+      Product.new("Pencil", 2.6),
+      Product.new("Pen", 1.3),
+      Product.new("Glue", 3.2),
+      Product.new("Book", 7.4)
+      ])
     @basket = Basket.new
   end
 
@@ -23,7 +23,7 @@ class Shop
   	  	my = @warehouse.find_product_by_id(choice)
   	  	@basket.add(my)
   	  	puts "You bought #{my.name}"
-	  else 
+	  else
 		p "Wrong number-try again"
 	  end
    end
@@ -35,7 +35,7 @@ class Shop
    	  if index !=""
    	  	index = index.to_i - 1
    	  	product = @basket.basket[index]
-   	  	  if product 
+   	  	  if product
    	  	  	@basket.delete(index)
    	  	  	puts "You removed #{product.name}"
 		  else

@@ -1,10 +1,11 @@
 require_relative "./../lib/basket"
 require_relative "./../lib/product"
 
-RSpec.describe Basket do 
+RSpec.describe Basket do
   before(:each) do
     @basket = Basket.new
   end
+
   it "creates empty basket" do
   	expect(@basket.basket).to eql([])
   end
@@ -24,14 +25,14 @@ RSpec.describe Basket do
 
    it "also removes products" do
    	products_array = ["monkey", "cucumber", "tortilla"]
-  	products_array.delete_at(0) 
+  	products_array.delete_at(0)
   	basket_array = products_array
   	fulfill_basket(products_array)
   	expect(@basket.basket).to eql(basket_array)
    end
 
   def fulfill_basket(products_array)
-  	products_array.each do |product| 
+  	products_array.each do |product|
   	  @basket.add(product)
   	end
   end

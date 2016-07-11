@@ -6,7 +6,7 @@ class Warehouse
   def initialize(products)
      @products = products
   end
-  
+
   def show_all
   	@products.each do |x|
   	  puts "#{x.id} #{x.name} #{x.price}$"
@@ -14,8 +14,9 @@ class Warehouse
   end
 
   def find_product_by_id(my_id)
-  	@products.find do |product| 
+  	@products.find do |product|
   	   product.id == my_id
   	end
-  end  	
+
+  end
 end
