@@ -1,5 +1,5 @@
 module Shop
-class Product_please_work
+class FetchProduct
   def call
     PRODUCTS
   end

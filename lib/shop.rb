@@ -1,8 +1,5 @@
-require_relative "./product"
-require_relative "./warehouse"
-require_relative "./basket"
-
-class Shop
+=begin
+class Shopp
   def initialize
     @warehouse = Warehouse.new([
       Product.new("Ball", 12.1),
@@ -76,5 +73,7 @@ class Shop
 
 end
 
-shop = Shop.new
+shop = Shopp.new
 shop.display_menu
+
+=end

@@ -1,19 +1,29 @@
-require_relative "./product"
-require_relative "./warehouse"
 
+module Shop
+  class Basket
+    attr_reader :product_id, :quantity
+
+    def initialize(product_id:, quantity:)
+      @product_id = product_id
+      @quantity = quantity
+    end
+  end
+end
+
+=begin
 class Basket
   attr_reader :basket
 
   def initialize
     @basket = []
-  end 
+  end
 
   def add(product)
     @basket << (product)
   end
 
   def search_basket_by_name(name)
-    @basket.find do |product| 
+    @basket.find do |product|
        product.name == name
     end
   end
@@ -40,3 +50,4 @@ class Basket
 
 end
 
+=end
