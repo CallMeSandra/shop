@@ -1,5 +1,5 @@
 module Shop
-  class FetchProduct
+  class FetchProducts
     def call
       PRODUCTS
     end

@@ -26,23 +26,24 @@ module Shop
   class App<Sinatra::Base
 
     get "/" do
-      @products= FetchProduct.new.call
+      @products= FetchProducts.new.call
       erb :"products/product"
     end
 
-    get "/product/:id" do
-     @product = FetchProduct.new.call.find { |product| product.id == params[:id].to_i}
-     erb :show
+    get "/product/:id" do |id|
+          # @product = FetchProducts.new.call.find { |product| product.id == params[:id].to_i}
+      @product = FetchProduct.new.call(id)
+      erb :show
     end
 
     post "/basket" do
-      AddToBasket.new(params).call
+      AddToBasket.new(params).call #tutaj łapie że params są zastrzeżoną nazwą, tymi przesłanymi
       redirect "/"
     end
 
     get "/basket" do
-      #FetchBasket.new.call
-      erb :basket_index
+      products_in_basket = FetchBasket.new.call
+      erb :basket_index, locals: { basket: products_in_basket }
     end
 
 

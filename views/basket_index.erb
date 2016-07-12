@@ -1,1 +1,19 @@
 <h1> PRZYNAJMNEJ DZIAŁA</h1>
+
+<% basket.each do |b| %>
+<div>
+  <b>ID</b></br>
+  <%= b[:product_id] %></br>
+  <b>name</b></br>
+  <%= b[:product].name %></br>
+    <b>price</b></br>
+  <%= b[:product].price %></br>
+  <b>Quantity:</b></br>
+  <%= b[:quantity] %></br>
+    <b>TOTAL PRICE</b></br>
+  <%= b[:total_price] %></br>
+  </div></br>
+
+
+</div>
+<% end %>
