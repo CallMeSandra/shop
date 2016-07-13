@@ -5,9 +5,10 @@
   <thead>
     <tr>
       <th>NAME</th>
-      <th>PRICE ($)</th>
+      <th>PRICE</th>
       <th>QUANTITY</th>
-      <th>TOTAL PRICE ($)</th>
+      <th>TOTAL PRICE</th>
+      <th>WITH TAX</th>
       <th>REMOVE FORM BASKET</th>
     </tr>
   </thead>
@@ -15,9 +16,10 @@
     <% basket.each.with_index do |b, index| %>
     <tr>
       <td> <%= b[:product].name %> </td>
-      <td> <%= b[:product].price %> </td>
+      <td> <%= b[:product].price %> $</td>
       <td> <%= b[:quantity] %> </td>
-      <td> <%= b[:total_price] %> </td>
+      <td> <%= b[:total_price] %> $</td>
+      <td> <%= b[:tax] %> $</td>
       <td>
         <form action="/fake_removing_page" method="post">
           <input type="hidden" name="index" value=<% index %>>
@@ -29,10 +31,19 @@
 
   </tbody>
   <tfoot>
-    <tr>
-      <td></td>
-      <td></td>
-      <td><b>Summary ($):</b></td>
-      <td><%= total %></td>
-    </tfoot>
-  </table>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><b>Summary with tax:</b></td>
+    <td><%= tax %> $</td>
+  </tfoot>
+  <tfoot>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><b>Summary:</b></td>
+    <td><%= total %> $</td>
+  </tfoot>
+</table>
+
+<h3><a href="https://www.siepomaga.pl/" class="button">Pay</a></h3>

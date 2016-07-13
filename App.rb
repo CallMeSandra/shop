@@ -32,28 +32,32 @@ module Shop
 
     get "/product/:id" do |id|
           # @product = FetchProducts.new.call.find { |product| product.id == params[:id].to_i}
-      @product = FetchProduct.new.call(id)
-      erb :show
+          @product = FetchProduct.new.call(id)
+          halt 404 unless @product
+          erb :show
     end
 
     post "/basket" do
+      begin
       AddToBasket.new(params).call #tutaj łapie że params są zastrzeżoną nazwą, tymi przesłanymi
       redirect "/"
+        rescue ArgumentError
+          #halt 404
+          redirect "/basket"
+        end
     end
 
     get "/basket" do
       products_in_basket = FetchBasket.new.call
       count_price = products_in_basket.map{|x| x[:total_price]}.reduce(:+)
-      erb :basket_index, locals: { basket: products_in_basket, total: count_price}
+      count_with_tax = products_in_basket.map{|x| x[:tax]}.reduce(:+)
+      erb :basket_index, locals: { basket: products_in_basket, total: count_price, tax: count_with_tax}
     end
 
     post "/fake_removing_page" do
-      p params
       DeleteFromBasket.new(params).call
       redirect "/basket"
     end
-
-
 
 
     get "/form" do

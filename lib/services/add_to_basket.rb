@@ -10,20 +10,27 @@ module Shop
     def call
       # szukam w Basket tego ID, jeśli jest
       # quantity += quantity
+      #unless quantity < 0
       item = BASKET.find do |basket|
         basket.product_id == @product_id
       end
       if item
-        item.quantity += @quantity
+        if @quantity > 0
+          item.quantity += @quantity
+        else
+          raise ArgumentError
+        end
       else
         BASKET << Basket.new(
           product_id: @product_id,
           quantity: @quantity
           )
       end
+      #else
+       # raise ArgumentError
+      #end
     end
   end
 end
-
       #{product_id: product_id, quantity: quantity}
 #teraz koszyk zawiera 2 informacje - id produktu i jego ilość
