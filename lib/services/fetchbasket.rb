@@ -10,7 +10,7 @@ module Shop
           quantity: each_product.quantity,
           total_price: each_product.total_price
         }
-end
+      end
     end
   end
 end

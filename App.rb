@@ -43,8 +43,16 @@ module Shop
 
     get "/basket" do
       products_in_basket = FetchBasket.new.call
-      erb :basket_index, locals: { basket: products_in_basket }
+      count_price = products_in_basket.map{|x| x[:total_price]}.reduce(:+)
+      erb :basket_index, locals: { basket: products_in_basket, total: count_price}
     end
+
+    get "/fake_removing_page" do
+      @remove = DeleteFromBasket.new.call(to_delete)
+      redirect "/basket"
+    end
+
+
 
 
     get "/form" do

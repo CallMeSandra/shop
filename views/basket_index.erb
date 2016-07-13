@@ -1,19 +1,42 @@
 <h1> PRZYNAJMNEJ DZIAŁA</h1>
 
-<% basket.each do |b| %>
-<div>
-  <b>ID</b></br>
-  <%= b[:product_id] %></br>
-  <b>name</b></br>
-  <%= b[:product].name %></br>
-    <b>price</b></br>
-  <%= b[:product].price %></br>
-  <b>Quantity:</b></br>
-  <%= b[:quantity] %></br>
-    <b>TOTAL PRICE</b></br>
-  <%= b[:total_price] %></br>
-  </div></br>
 
+<table width="100%">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>PRICE ($)</th>
+      <th>QUANTITY</th>
+      <th>TOTAL PRICE ($)</th>
+      <th>REMOVE FORM BASKET</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% basket.each do |b| %>
+    <tr>
+      <td> <%= b[:product].name %> </td>
+      <td> <%= b[:product].price %> </td>
+      <td> <%= b[:quantity] %> </td>
+      <td> <%= b[:total_price] %> </td>
+      <td>
+      <form action="/fake_removing_page" method="post">
+          <input type="hidden" name="product" value=<% @delete = b %>>
+          <input type="submit" value="DELETE">
+        </form>
+      </td>
+    </tr>
+    <% end %>
 
-</div>
-<% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><b>Summary:</b></td>
+      <td><%= total %></td>
+    </tfoot>
+  </table>
+
+  <h1><%= p basket %></h1>
+
+  <p> <%= p params %></p>
