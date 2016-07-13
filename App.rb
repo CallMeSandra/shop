@@ -47,8 +47,9 @@ module Shop
       erb :basket_index, locals: { basket: products_in_basket, total: count_price}
     end
 
-    get "/fake_removing_page" do
-      @remove = DeleteFromBasket.new.call(to_delete)
+    post "/fake_removing_page" do
+      p params
+      DeleteFromBasket.new(params).call
       redirect "/basket"
     end
 

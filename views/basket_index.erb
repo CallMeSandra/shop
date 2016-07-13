@@ -12,15 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <% basket.each do |b| %>
+    <% basket.each.with_index do |b, index| %>
     <tr>
       <td> <%= b[:product].name %> </td>
       <td> <%= b[:product].price %> </td>
       <td> <%= b[:quantity] %> </td>
       <td> <%= b[:total_price] %> </td>
       <td>
-      <form action="/fake_removing_page" method="post">
-          <input type="hidden" name="product" value=<% @delete = b %>>
+        <form action="/fake_removing_page" method="post">
+          <input type="hidden" name="index" value=<% index %>>
           <input type="submit" value="DELETE">
         </form>
       </td>
@@ -32,11 +32,7 @@
     <tr>
       <td></td>
       <td></td>
-      <td><b>Summary:</b></td>
+      <td><b>Summary ($):</b></td>
       <td><%= total %></td>
     </tfoot>
   </table>
-
-  <h1><%= p basket %></h1>
-
-  <p> <%= p params %></p>
