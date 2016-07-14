@@ -29,20 +29,16 @@ module Shop
 
     get "/" do
       products= FetchProducts.new.call
-      erb :"products/index", locals: { products: products}
+      erb :"products/index", locals: { products: products }
     end
 
     get "/product/:id" do |id|
       product = FetchProduct.new.call(id)
-      unless product
+      if product
+        erb :"products/show", locals: { product: product }
+      else
         redirect "/404"
       end
-      erb :"products/show", locals: { product: product }
-    end
-
-    get "/404" do
-      status 404
-      erb :"404", layout: nil
     end
 
     post "/basket" do
@@ -59,14 +55,21 @@ module Shop
       count_price = products_in_basket.map{|x| x[:total_price]}.reduce(:+)
       count_with_tax = products_in_basket.map{|x| x[:tax]}.reduce(:+)
       erb :"basket/index",
-      locals: { basket: products_in_basket, total: count_price, tax: count_with_tax}
+      locals: { basket: products_in_basket, total: count_price, tax: count_with_tax }
     end
 
     post "/fake_removing_page" do
       DeleteFromBasket.new(params).call
       redirect "/basket"
     end
+    get "/404" do
+      status 404
+      erb :"404", layout: nil
+    end
 
-
+    not_found do
+      status 404
+      erb :"404", layout: nil
+    end
   end
 end
