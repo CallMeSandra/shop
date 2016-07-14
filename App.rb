@@ -62,6 +62,7 @@ module Shop
       DeleteFromBasket.new(params).call
       redirect "/basket"
     end
+
     get "/404" do
       status 404
       erb :"404", layout: nil

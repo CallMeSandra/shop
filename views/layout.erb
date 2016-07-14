@@ -2,13 +2,16 @@
 
 <head>
   <title>Shop</title>
+  <link rel="stylesheet" type="text/css" href="/application.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container">
   <h1>Welcome to our shop<h1>
-    <h3><a href="/">Home</a> </br><h3> </br>
-      <h3><a href="/basket">Basket</a> <h3>
-        <%= yield %>
-      </body>
-      </html>
+    <div class="btn-group">
+      <a class="btn bnt-default" href="/">Home</a>
+      <a class="btn bnt-default" href="/basket">Basket</a>
+    </div>
+    <%= yield %>
+  </body>
+  </html>
