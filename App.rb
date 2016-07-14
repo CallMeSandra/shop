@@ -2,7 +2,6 @@ require "bundler/setup"
 require "sinatra/base"
 Dir["./lib/**/*.rb"].each{|file| require file}
 
-
 module Shop
 
   PRODUCTS = [
@@ -24,34 +23,43 @@ module Shop
   BASKET = []
 
   class App<Sinatra::Base
+    configure :test do
+      set :dump_errors, false
+    end
 
     get "/" do
-      @products= FetchProducts.new.call
-      erb :"products/product"
+      products= FetchProducts.new.call
+      erb :"products/index", locals: { products: products}
     end
 
     get "/product/:id" do |id|
-          # @product = FetchProducts.new.call.find { |product| product.id == params[:id].to_i}
-          @product = FetchProduct.new.call(id)
-          halt 404 unless @product
-          erb :show
+      product = FetchProduct.new.call(id)
+      unless product
+        redirect "/404"
+      end
+      erb :"products/show", locals: { product: product }
+    end
+
+    get "/404" do
+      status 404
+      erb :"404", layout: nil
     end
 
     post "/basket" do
       begin
-      AddToBasket.new(params).call #tutaj łapie że params są zastrzeżoną nazwą, tymi przesłanymi
-      redirect "/"
-        rescue ArgumentError
-          #halt 404
-          redirect "/basket"
-        end
+        AddToBasket.new(params).call
+        redirect "/"
+      rescue ArgumentError
+        redirect "/404"
+      end
     end
 
     get "/basket" do
       products_in_basket = FetchBasket.new.call
       count_price = products_in_basket.map{|x| x[:total_price]}.reduce(:+)
       count_with_tax = products_in_basket.map{|x| x[:tax]}.reduce(:+)
-      erb :basket_index, locals: { basket: products_in_basket, total: count_price, tax: count_with_tax}
+      erb :"basket/index",
+      locals: { basket: products_in_basket, total: count_price, tax: count_with_tax}
     end
 
     post "/fake_removing_page" do
@@ -59,14 +67,5 @@ module Shop
       redirect "/basket"
     end
 
-
-    get "/form" do
-      erb :form
-    end
-
-    post "/form_making" do #robimy formularz! nie dostaniemy sie do tego z przegladarki
-      erb :hello
-    end
   end
 end
-
