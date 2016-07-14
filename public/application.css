@@ -1,3 +1,68 @@
 body {
-  background-color: orange !important;
+  background-color: #FFFFFF;
+  font-family: lato ;
+}
+
+h1 {
+  font-size: 50px;
+  color: #2F4696;
+}
+
+h2 {
+  font-size: 40px;
+  color: #2F4696;
+}
+
+h3 {
+  font-size: 30px;
+  color: #2F4696;
+}
+
+h4 {
+  font-size: 20px;
+  color: black;
+}
+
+.center
+{
+  text-align: center;
+}
+
+.table_field
+{
+  margin: 0% 30%;
+}
+
+.button_submit
+{
+  border: 1px solid #2F4696;
+  background-color: #FDC00D;
+  color: black;
+  padding: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.button_home
+{
+  border: 1px solid #2F4696;
+  border-radius: 15px;
+  background-color: white;
+  color: #516CCE;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+
+.button_pay
+{
+  border: 1px solid #2F4696;
+  background-color: #FDC00D;
+  border-radius: 15px;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 0% 0% 10% 86%;
 }

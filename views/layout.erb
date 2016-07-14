@@ -1,17 +1,18 @@
 <html>
-
 <head>
   <title>Shop</title>
-  <link rel="stylesheet" type="text/css" href="/application.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/application.css">
+
 </head>
 
 <body class="container">
-  <h1>Welcome to our shop<h1>
-    <div class="btn-group">
-      <a class="btn bnt-default" href="/">Home</a>
-      <a class="btn bnt-default" href="/basket">Basket</a>
-    </div>
-    <%= yield %>
-  </body>
-  </html>
+  <a href="/"><img src="https://s32.postimg.org/8oytgl7vp/Logo_Pok_mon.png" alt="logo" width="90%"></a>
+  <div class="center">
+    <h1 class="center">Welcome to our shop</h1>
+    <a class="button_home" href="/">Home</a>
+    <a class="button_home" href="/basket">Basket</a>
+  </div>
+  <%= yield %>
+</body>
+</html>

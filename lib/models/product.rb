@@ -1,13 +1,14 @@
 module Shop
   class Product
-    attr_reader :name, :price , :id, :quantity
+    attr_reader :name, :price , :id, :quantity, :image
 
     @@id=0
 
-    def initialize (name, price)
+    def initialize (name, price, image)
       @id = next_id
       @name = set_name(name)
       @price = set_price(price)
+      @image = image
     end
 
     private
