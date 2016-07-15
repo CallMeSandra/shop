@@ -17,7 +17,7 @@ module Shop
           raise ArgumentError
         end
       else
-        BASKET << Basket.new(
+        BASKET << BasketItem.new(
           product_id: @product_id,
           quantity: @quantity
           )

@@ -1,8 +1,10 @@
-<h1> Our products</h1>
-<ul class="list-group">
-  <% products.each do |product| %>
-  <li class="list-group-item">
-    <a href="/product/<%= product.id %>"><%= product.name %></a>
-    <% end %>
-  </li>
-</ul>
+<h3 class="center"> Our products</h3>
+<div class="table_field">
+  <ul class="list-group" >
+    <% products.each do |product| %>
+    <li class="list-group-item">
+      <a href="/product/<%= product.id %>"><h4><%= product.name %></h4></a>
+      <% end %>
+    </li>
+  </ul>
+</div>
