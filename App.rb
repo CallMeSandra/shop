@@ -5,11 +5,11 @@ Dir["./lib/**/*.rb"].each{|file| require file}
 module Shop
 
   PRODUCTS = [
-    Product.new("Pikachu",8200, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"),
-    Product.new("Bulbasaur",3000, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"),
-    Product.new("Squirle",3900, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"),
-    Product.new("Jigglypuff",2400, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png"),
-    Product.new("Snorlax",5800, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png")
+    Product.new("Pikachu", 8200, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"),
+    Product.new("Bulbasaur", 3000, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"),
+    Product.new("Squirle", 3900, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"),
+    Product.new("Jigglypuff", 2400, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png"),
+    Product.new("Snorlax", 5800, "http://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png")
   ]
 
   WAREHOUSE = [

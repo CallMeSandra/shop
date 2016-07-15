@@ -1,21 +1,22 @@
-<table width="70%">
+<table class="width70">
   <tr>
    <th></th>
    <th></th>
- </tr>
- <tr>
-   <td>
-     <img src="<%= product.image %>"/>
-   </td>
-   <td>
-     <h3><%= product.name %></h3>
-     <h4><b>Name:</b> <%= product.name %> </h4>
-     <h4><b>Price:</b> <%= product.price %> </h4>
-     <form action="/basket" method="post">
-      <input type="hidden" name="product_id" value=<%= product.id %>>
-      <input type="number" name="quantity" value=1>
-      <button type="submit" class="button_submit">BUY</button>
-    </form>
-  </td>
-</tr>
+  </tr>
+  <tr>
+    <td>
+      <img src="<%= product.image_url %>"/>
+    </td>
+    <td>
+      <h3><%= product.name %></h3>
+      <h4><b>Name:</b> <%= product.name %> </h4>
+      <h4><b>Price:</b> <%= product.price %> </h4>
+      <form action="/basket" method="post">
+        <input type="hidden" name="product_id" value=<%= product.id %>>
+        <input type="number" name="quantity" value=1>
+        <button type="submit" class="button_submit">BUY</button>
+      </form>
+    </td>
+  </tr>
 </table>
+

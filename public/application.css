@@ -23,18 +23,15 @@ h4 {
   color: black;
 }
 
-.center
-{
+.center {
   text-align: center;
 }
 
-.table_field
-{
+.table_field {
   margin: 0% 30%;
 }
 
-.button_submit
-{
+.button_submit {
   border: 1px solid #2F4696;
   background-color: #FDC00D;
   color: black;
@@ -43,8 +40,7 @@ h4 {
   cursor: pointer;
 }
 
-.button_home
-{
+.button_home {
   border: 1px solid #2F4696;
   border-radius: 15px;
   background-color: white;
@@ -55,8 +51,7 @@ h4 {
 }
 
 
-.button_pay
-{
+.button_pay {
   border: 1px solid #2F4696;
   background-color: #FDC00D;
   border-radius: 15px;
@@ -65,4 +60,12 @@ h4 {
   padding: 10px;
   cursor: pointer;
   margin: 0% 0% 10% 86%;
+}
+
+.width90 {
+  width: 90%
+}
+
+.width70 {
+  width: 70%
 }

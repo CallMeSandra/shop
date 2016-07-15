@@ -1,5 +1,5 @@
 module Shop
-  class Basket
+  class BasketItem
     attr_reader :product_id
     attr_accessor :quantity
 

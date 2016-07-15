@@ -1,15 +1,21 @@
-require_relative "./../lib/basket"
-require_relative "./../lib/product"
+require_relative "./../lib/models/basketitem"
+require_relative "./../lib/models/product"
 
-RSpec.describe Basket do
-  before(:each) do
-    @basket = Basket.new
-  end
+RSpec.describe basketitem do
+ # before(:each) do
+  #  @basket = BasketItem.new
+  #end
+  let(:product_id) {1}
+  let(:quantity) {15}
+
 
   it "creates empty basket" do
-  	expect(@basket.basket).to eql([])
+    expect{
+      BasketItem.new(product_id, quantity)
+      }.to_not raise_error
+    end
   end
-
+=begin
   it "adds product" do
     @basket.add("monkey")
     expect(@basket.basket).to eql (["monkey"])
@@ -37,4 +43,6 @@ RSpec.describe Basket do
   	end
   end
 
-end
+=end
+
+
