@@ -2,7 +2,6 @@ module Shop
   class FetchBasket
 
     def call
-
       BASKET.map do |each_product|
         {
           product: each_product.fetch_product,

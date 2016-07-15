@@ -8,7 +8,7 @@ module Shop
       @id = next_id
       @name = set_name(name)
       @price = set_price(price)
-      @image = image_url
+      @image_url = image_url
     end
 
     private
@@ -23,8 +23,11 @@ module Shop
     end
 
     def set_name(name)
-      raise ArgumentError if name.length < 2
-      name
+      if name == nil or name.length < 3
+        raise ArgumentError
+      else
+        name
+      end
     end
   end
 end

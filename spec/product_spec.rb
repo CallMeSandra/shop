@@ -1,61 +1,43 @@
-require_relative "./../lib/product"
+require_relative "./../lib/models/product"
 
-RSpec.describe Product do 
-  let (:price) {12.11} #definiuje
+RSpec.describe Shop::Product do
+  let (:price) {12.11}
   let (:name) {"chocolate"}
-  let (:quantity) {100}
-	
+  let (:image) {"img_url"}
+
+  it "raises error for invalid number of arguments" do
+  expect{
+    Shop::Product.new(name, image)
+    }.to raise_error ArgumentError
+  end
+
   it "creates product" do
     expect{
-      Product.new(name, price, quantity)
+      Shop::Product.new(name, price, image)
       }.to_not raise_error
 	end
 
-    it "raises error for invalid number of arguments" do
-    expect{
-      Product.new(nil)
-      }.to raise_error(ArgumentError)
-  end
-
-  context "#name" 
-    it "returns proper name value" do
-      expect(Product.new("foo",2, quantity).name).
-      to eql("foo")
-    end
-
-  context "#price" 
-    it "returns proper price value" do
-      expect(Product.new("foo",24, 8).price).
-      to eql(24)
-    end
-
-  context "#quantity" 
-    it "returns proper quantity value" do
-      expect(Product.new("foo",24, 230).quantity).
-      to eql(230)
-    end
-
-  it "raises error for invalid price" do
-    expect{
-      Product.new(name,nil,quantity).price
-    }.to raise_error(ArgumentError)
+  it "raises error for price = 0" do
+  expect{
+    Shop::Product.new(name, 0, image)
+    }.to raise_error ArgumentError
   end
 
   it "raises error for price < 0" do
-    expect{
-      Product.new(name,-10,quantity).price
-    }.to raise_error(ArgumentError)
+  expect{
+    Shop::Product.new(name, -10, image)
+    }.to raise_error ArgumentError
   end
 
-  it "raises error for name shorter than 2 letters" do
-    expect{
-      Product.new("s",price,quantity)
-    }.to raise_error(ArgumentError)
+  it "raises error for name shorter than 3 chars" do
+  expect{
+    Shop::Product.new("sn", price, image)
+    }.to raise_error ArgumentError
   end
 
-  it "raises error for invalid quantity" do
-    expect{
-      Product.new(name,price,nil)
-    }.to raise_error(ArgumentError)
+  it "raises error for name == nil" do
+  expect{
+    Shop::Product.new(nil, price, image)
+    }.to raise_error ArgumentError
   end
 end
