@@ -23,7 +23,7 @@ module Shop
 
     private
     def set_quantity(quantity)
-      raise ArgumentError unless quantity.is_a?(Numeric)
+      raise ArgumentError unless quantity.is_a?(Integer)
       raise ArgumentError if quantity <=0
       quantity
     end
